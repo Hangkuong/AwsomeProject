@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -30,7 +30,7 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -40,7 +40,9 @@ function Section({children, title}: SectionProps): React.JSX.Element {
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
-        ]}></Text>
+        ]}>
+        {title}
+      </Text>
       <Text
         style={[
           styles.sectionDescription,
@@ -61,7 +63,8 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return <HomeScreen />;
+  return <HomeScreen />
+
 }
 
 const styles = StyleSheet.create({
